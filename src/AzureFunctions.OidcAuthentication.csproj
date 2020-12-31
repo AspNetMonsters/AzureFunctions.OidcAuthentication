@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+      <PublisherName>ASP.NET Monsters</PublisherName>
+      <PackageId>AzureFunctions.OidcAuthentication</PackageId>
+      <Version>1.0.0.0</Version>
+      <Copyright>ASP.NET Monsters 2020</Copyright>
+      <Title>Azure Functions OIDC Authentiction</Title>
+      <Description>Easily validate OIDC / JWT Bearer Tokens to authenticate users and secure your Azure Functions application</Description>
+      <Authors>David Paquette</Authors>
+      <PackageTags>AspNetCore;Application Insights;App Insights;NetCore;Telemetry</PackageTags>
+      <PackageProjectUrl>https://github.com/AspNetMonsters/AzureFunctions.OidcAuthentication</PackageProjectUrl>
+      <PackageLicenseUrl>https://github.com/AspNetMonsters/AzureFunctions.OidcAuthentication/blob/master/LICENSE</PackageLicenseUrl>
+      <RepositoryType>git</RepositoryType>
+      <RepositoryUrl>git://github.com/AspNetMonsters/AzureFunctions.OidcAuthentication</RepositoryUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.8" />
+    <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="6.7.1" />
+    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="6.7.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+  </ItemGroup>
+</Project>
