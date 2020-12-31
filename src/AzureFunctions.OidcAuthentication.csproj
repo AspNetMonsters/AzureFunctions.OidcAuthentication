@@ -7,9 +7,9 @@
       <Version>1.0.0.0</Version>
       <Copyright>ASP.NET Monsters 2020</Copyright>
       <Title>Azure Functions OIDC Authentiction</Title>
-      <Description>Easily validate OIDC / JWT Bearer Tokens to authenticate users and secure your Azure Functions application</Description>
+      <Description>Easily validate OIDC / JWT Bearer Tokens to authenticate users and secure your Azure Functions application. Works with popular identity providers including Auth0, Azure AD B2C, Azure AD, and Okta.</Description>
       <Authors>David Paquette</Authors>
-      <PackageTags>AspNetCore;Application Insights;App Insights;NetCore;Telemetry</PackageTags>
+      <PackageTags>Azure Functions;Token Validation;JWT;OIDC;Auth0;Azure AD B2C;Azure AD;Okta</PackageTags>
       <PackageProjectUrl>https://github.com/AspNetMonsters/AzureFunctions.OidcAuthentication</PackageProjectUrl>
       <PackageLicenseUrl>https://github.com/AspNetMonsters/AzureFunctions.OidcAuthentication/blob/master/LICENSE</PackageLicenseUrl>
       <RepositoryType>git</RepositoryType>
