@@ -22,4 +22,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: AzureFunctions.OidcAuthentication.${{ github.event.release.tag_name }}.nupkg
-        path: .\src\AzureFunctions.OidcAuthentication\bin\Release\AzureFunctions.OidcAuthentication.${{ github.event.release.tag_name }}.nupkg
+        path: .\src\bin\Release\AzureFunctions.OidcAuthentication.${{ github.event.release.tag_name }}.nupkg
