@@ -10,8 +10,10 @@
     <tags>Azure Functions;Token Validation;JWT;OIDC;Auth0;Azure AD B2C;Azure AD;Okta</tags>
     <icon>images\icon.png</icon>
     <releaseNotes>$releaseNotes$</releaseNotes>
+    <projectUrl>https://github.com/AspNetMonsters/AzureFunctions.OidcAuthentication</projectUrl>
+    <repository type="git" url="git://github.com/AspNetMonsters/AzureFunctions.OidcAuthentication" />
     <dependencies>
-      <group targetFramework=".NETCoreApp3.1">
+      <group targetFramework="netstandard2.0">
         <dependency id="Microsoft.AspNetCore.Http.Features" version="3.1.8" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Azure.Functions.Extensions" version="1.1.0" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.Options" version="3.1.8" exclude="Build,Analyzers" />
@@ -22,7 +24,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\$config$\netcoreapp3.1\$id$.dll" target="lib\netcoreapp3.1\$id$.dll"/>
+    <file src="bin\$config$\netstandard2.0\$id$.dll" target="lib\netstandard2.0\$id$.dll"/>
     <file src="icon.png" target="images\" />
   </files>
 </package>
