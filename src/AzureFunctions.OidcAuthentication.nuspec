@@ -10,6 +10,16 @@
     <tags>Azure Functions;Token Validation;JWT;OIDC;Auth0;Azure AD B2C;Azure AD;Okta</tags>
     <icon>images\icon.png</icon>
     <releaseNotes>$releaseNotes$</releaseNotes>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.AspNetCore.Http.Features" version="3.1.8" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Azure.Functions.Extensions" version="1.1.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Options" version="3.1.8" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.IdentityModel.Protocols" version="6.7.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.IdentityModel.Protocols.OpenIdConnect" version="6.7.1" exclude="Build,Analyzers" />
+        <dependency id="System.IdentityModel.Tokens.Jwt" version="6.7.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
   </metadata>
   <files>
     <file src="bin\$config$\netcoreapp3.1\$id$.dll" target="lib\netcoreapp3.1\$id$.dll"/>
