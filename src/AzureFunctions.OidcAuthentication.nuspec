@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <authors>$authors$</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <description>$description$</description>
+    <tags>Azure Functions;Token Validation;JWT;OIDC;Auth0;Azure AD B2C;Azure AD;Okta</tags>
+    <icon>images\icon.png</icon>
+    <releaseNotes>$releaseNotes$</releaseNotes>
+  </metadata>
+  <files>
+    <file src="bin\$config$\netcoreapp3.1\$id$.dll" target="lib\netcoreapp3.1\$id$.dll"/>
+    <file src="icon.png" target="images\" />
+  </files>
+</package>
