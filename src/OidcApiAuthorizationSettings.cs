@@ -63,26 +63,12 @@
         /// (Optional) A string defining the name of the claim that will identify the user's name
         /// Default value: "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
         /// </summary>
-        /// <remarks>
-        /// The "Issuer" is the URL for the authorization provider's end-point. This URL will be
-        /// used as part of the OpenID Connect protocol to obtain the the signing keys
-        /// that will be used to validate the JWT Bearer tokens in incoming HTTP request headers.
-        /// 
-        /// For Auth0 the URL format is:  https://{Auth0-tenant-domain}.auth0.com 
-        /// </remarks>
         public string NameClaimType {get; set;}
 
         /// <summary>
         /// (Optional) A string defining the name of the claim that will identify the user's role membership
-        /// Default value: "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
+        /// Default value: "http://schemas.microsoft.com/ws/2008/06/identity/claims/roleidentifier"
         /// </summary>
-        /// <remarks>
-        /// The "Issuer" is the URL for the authorization provider's end-point. This URL will be
-        /// used as part of the OpenID Connect protocol to obtain the the signing keys
-        /// that will be used to validate the JWT Bearer tokens in incoming HTTP request headers.
-        /// 
-        /// For Auth0 the URL format is:  https://{Auth0-tenant-domain}.auth0.com 
-        /// </remarks>
         public string RoleClaimType {get; set;}
     }
 }
