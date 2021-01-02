@@ -101,4 +101,44 @@ A string defining the name of the claim that will identify the user's role membe
 Default value: "http://schemas.microsoft.com/ws/2008/06/identity/claims/roleidentifier"
 
 
+### Securing an Azure Function
+Not that everything is configured, you can inject the `IApiAuthentication` service into your Azure Function and authenticate users as follows:
 
+```
+namespace MySecuredApp
+{
+    public class MyFunction
+    {
+        private readonly IApiAuthentication apiAuthentication;
+
+        public MyFunction(IApiAuthentication apiAuthentication)
+        {
+            this.apiAuthentication = apiAuthentication;
+        }
+        
+        [FunctionName("MyFunction")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            // Authenticate the user
+            var authResult = await this.apiAuthentication.AuthenticateAsync(req.Headers);
+
+            // Check the authentication result
+            if (authResult.Failed)
+            {
+                return new ForbidResult();
+            }
+            
+            // User is authenticated. Proceed with function logic
+            string name = authResult.User.Identity.Name; // This gives us the unique user name
+            
+            string responseMessage = $"Hello, {name}. This HTTP triggered function executed successfully.";
+
+            return new OkObjectResult(responseMessage);
+        }
+   }
+}
+```
+
+`AuthResult.User` is a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) that is created using the claims that were included in the JWT token that was validated by the `IApiAuthentication` service. You can use `authResult.User` to inspect the user's claims and add your own authorization rules inside your Function.
