@@ -17,7 +17,7 @@ namespace AzureFunctions.OidcAuthentication
         /// from an Open ID Connect provider (issuer)
         /// </summary>
         public OidcConfigurationManager(
-            IOptions<OidcApiAuthorizationSettings> settingsOptions)
+            IOptions<OidcApiAuthSettings> settingsOptions)
         {
             string issuerUrl = settingsOptions.Value.IssuerUrl;
             string metadataAddress = settingsOptions.Value.MetadataAddress;

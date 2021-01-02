@@ -11,10 +11,10 @@ namespace AzureFunctions.OidcAuthentication
             // Function's app settings (or local.settings.json)
             // as IOptions<OidcApiAuthorizationSettings>.
             // See https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-dependency-injection#working-with-options-and-settings
-            services.AddOptions<OidcApiAuthorizationSettings>()
+            services.AddOptions<OidcApiAuthSettings>()
                 .Configure<IConfiguration>((settings, configuration) =>
                 {
-                    configuration.GetSection(nameof(OidcApiAuthorizationSettings)).Bind(settings);
+                    configuration.GetSection(nameof(OidcApiAuthSettings)).Bind(settings);
                 });
 
             // These are created as a singletons, so that only one instance of each

@@ -26,7 +26,7 @@ namespace AzureFunctions.OidcAuthentication
         private readonly string _roleClaimType;
 
         public ApiAuthenticationService(
-            IOptions<OidcApiAuthorizationSettings> apiAuthorizationSettingsOptions,
+            IOptions<OidcApiAuthSettings> apiAuthorizationSettingsOptions,
             IAuthorizationHeaderBearerTokenExtractor authorizationHeaderBearerTokenExractor,
             IJwtSecurityTokenHandlerWrapper jwtSecurityTokenHandlerWrapper,
             IOidcConfigurationManager oidcConfigurationManager)
@@ -145,7 +145,7 @@ namespace AzureFunctions.OidcAuthentication
                 || string.IsNullOrWhiteSpace(_issuerUrl))
             {
                 return new HealthCheckResult(
-                    $"Some or all {nameof(OidcApiAuthorizationSettings)} are missing.");
+                    $"Some or all {nameof(OidcApiAuthSettings)} are missing.");
             }
 
             try
