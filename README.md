@@ -127,7 +127,7 @@ namespace MySecuredApp
             // Check the authentication result
             if (authResult.Failed)
             {
-                return new ForbidResult();
+                return new ForbidResult(authenticationScheme: "Bearer");
             }
             
             // User is authenticated. Proceed with function logic
