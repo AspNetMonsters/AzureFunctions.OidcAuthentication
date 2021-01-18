@@ -51,7 +51,7 @@ Here is an example `local.settings.json` file for Azure AD B2C:
     "Values": {
       "AzureWebJobsStorage": "UseDevelopmentStorage=true",
       "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-      "OidcApiAuthSettings:Audience": "Your Application's (client) ID",
+      "OidcApiAuthSettings:Audience": "Your API Application's Client ID",
       "OidcApiAuthSettings:MetadataAddress": "https://yourb2cdomain.b2clogin.com/yourb2cdomain.onmicrosoft.com/yoursigninuserflowname/v2.0/.well-known/openid-configuration/",
       "OidcApiAuthSettings:IssuerUrl": "https://yourb2cdomain.b2clogin.com/Your Directory (tenant) ID/v2.0/"
     }
@@ -68,7 +68,7 @@ The "Audience" is the identifer used by the authorization provider to identify t
 
 For Auth0 use the API's Identifier in the Auth0 Dashboard.
 
-For Azure AD B2C, use your Application's (client) ID.
+For Azure AD B2C, use your API Application's (client) ID. This is a GUID.
 
 **OidcApiAuthSettings:IssuerUrl** - Required
 
