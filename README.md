@@ -142,3 +142,7 @@ namespace MySecuredApp
 ```
 
 `AuthResult.User` is a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) that is created using the claims that were included in the JWT token that was validated by the `IApiAuthentication` service. You can use `authResult.User` to inspect the user's claims and add your own authorization rules inside your Function.
+
+## End-to-end Sample
+**Functions App:** https://github.com/AspNetMonsters/functions-azure-b2c-sample
+**Vue front-end:** https://github.com/AspNetMonsters/vue-azure-b2c-sample
