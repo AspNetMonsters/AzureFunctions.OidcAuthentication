@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.IdentityModel.Tokens;
-
-namespace AzureFunctions.OidcAuthentication
+﻿namespace AzureFunctions.Extensions.OpenIDConnect
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Microsoft.IdentityModel.Tokens;
+
     internal interface IOidcConfigurationManager
     {
         /// <summary>

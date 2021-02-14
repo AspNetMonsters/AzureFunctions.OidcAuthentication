@@ -1,7 +1,7 @@
-﻿using System.Security.Claims;
-
-namespace AzureFunctions.OidcAuthentication
+﻿namespace AzureFunctions.Extensions.OpenIDConnect
 {
+    using System.Security.Claims;
+
     /// <summary>
     /// Encapsulates the results of an API authorization.
     /// </summary>

@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace AzureFunctions.OidcAuthentication
+﻿namespace AzureFunctions.Extensions.OpenIDConnect
 {
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+
     public static class ServicesConfigurationExtensions
     {
         public static void AddOidcApiAuthorization(this IServiceCollection services)

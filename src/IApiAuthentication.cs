@@ -1,11 +1,10 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-
-namespace AzureFunctions.OidcAuthentication
+﻿namespace AzureFunctions.Extensions.OpenIDConnect
 {
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Http;
+
     public interface IApiAuthentication
     {
         Task<ApiAuthenticationResult> AuthenticateAsync(IHeaderDictionary httpRequestHeaders);
-        Task<HealthCheckResult> HealthCheckAsync();
     }
 }

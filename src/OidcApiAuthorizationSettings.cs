@@ -1,4 +1,4 @@
-﻿namespace AzureFunctions.OidcAuthentication
+﻿namespace AzureFunctions.Extensions.OpenIDConnect
 {
     /// <summary>
     /// Encapsulates settings used in OpenID Connect (OIDC) API authentication.

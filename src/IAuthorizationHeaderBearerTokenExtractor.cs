@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace AzureFunctions.OidcAuthentication
+﻿namespace AzureFunctions.Extensions.OpenIDConnect
 {
+    using Microsoft.AspNetCore.Http;
+
     internal interface IAuthorizationHeaderBearerTokenExtractor
     {
         /// <summary>

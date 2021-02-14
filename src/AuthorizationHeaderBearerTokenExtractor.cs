@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Net.Http.Headers;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Primitives;
-
-namespace AzureFunctions.OidcAuthentication
+﻿namespace AzureFunctions.Extensions.OpenIDConnect
 {
+    using System;
+    using System.Linq;
+    using System.Net.Http.Headers;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.Extensions.Primitives;
+
     internal class AuthorizationHeaderBearerTokenExtractor : IAuthorizationHeaderBearerTokenExtractor
     {
         /// <summary>

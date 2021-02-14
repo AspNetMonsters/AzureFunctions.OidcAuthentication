@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-
-namespace AzureFunctions.OidcAuthentication
+﻿namespace AzureFunctions.Extensions.OpenIDConnect
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.Extensions.Options;
+    using Microsoft.IdentityModel.Tokens;
+
     /// <summary>
     /// Encapsulates checks of bearer tokens in HTTP request headers.
     /// </summary>
@@ -139,32 +139,6 @@ namespace AzureFunctions.OidcAuthentication
 
             // Success result.
             return new ApiAuthenticationResult(principal);
-        }
-
-        public async Task<HealthCheckResult> HealthCheckAsync()
-        {
-            if (string.IsNullOrWhiteSpace(_audience)
-                || string.IsNullOrWhiteSpace(_issuerUrl))
-            {
-                return new HealthCheckResult(
-                    $"Some or all {nameof(OidcApiAuthSettings)} are missing.");
-            }
-
-            try
-            {
-                // Get the singing keys fresh. Not from the cache.
-                _oidcConfigurationManager.RequestRefresh();
-
-                await _oidcConfigurationManager.GetIssuerSigningKeysAsync();
-            }
-            catch (Exception ex)
-            {
-                return new HealthCheckResult(
-                    "Problem getting signing keys from Open ID Connect provider (issuer)."
-                    + $" ConfigurationManager threw {ex.GetType()} Message: {ex.Message}");
-            }
-
-            return new HealthCheckResult(); // Good health.
         }
     }
 }

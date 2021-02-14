@@ -3,15 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
       <PublisherName>ASP.NET Monsters</PublisherName>
-      <PackageId>AzureFunctions.OidcAuthentication</PackageId>
+      <PackageId>AzureFunctions.Extensions.OpenIDConnect</PackageId>
       <Version>1.0.0.0</Version>
-      <Copyright>ASP.NET Monsters 2020</Copyright>
+      <Copyright>Fabrice Michellonet 2021</Copyright>
       <Title>Azure Functions OIDC Authentiction</Title>
-      <Description>Easily validate OIDC / JWT Bearer Tokens to authenticate users and secure your Azure Functions application. Works with popular identity providers including Auth0, Azure AD B2C, Azure AD, and Okta.</Description>
-      <Authors>David Paquette</Authors>
+      <Description>OIDC / JWT Bearer Tokens authentication made easy for Azure Functions.
+Port of well known ASPNET [Authorize] attribute.
+Works with popular identity providers including Auth0, Azure AD B2C, Azure AD, Google and Okta.</Description>
+      <Authors>Fabrice Michellonet</Authors>
       <RepositoryType>git</RepositoryType>
-      <RepositoryUrl>git://github.com/AspNetMonsters/AzureFunctions.OidcAuthentication</RepositoryUrl>
+      <RepositoryUrl>git://github.com/fmichellonet/AzureFunctions.Extensions.OpenIDConnect</RepositoryUrl>
       <NuspecFile>$(MSBuildThisFileDirectory)$(MSBuildProjectName).nuspec</NuspecFile>
+      <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
   <Target Name="SetNuspecProperties" BeforeTargets="GenerateNuspec">
     <PropertyGroup>
