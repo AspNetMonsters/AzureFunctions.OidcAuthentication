@@ -84,5 +84,8 @@
         /// For Auth0 the URL format is:  https://{Auth0-tenant-domain}.auth0.com 
         /// </remarks>
         public string RoleClaimType {get; set;}
+
+
+        public string Issuer { get; set; }
     }
 }
