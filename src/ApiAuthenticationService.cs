@@ -20,6 +20,7 @@ namespace AzureFunctions.OidcAuthentication
         private readonly IOidcConfigurationManager _oidcConfigurationManager;
 
         private readonly string _issuerUrl;
+        private readonly string _issuer;
         private readonly string _audience;
 
         private readonly string _nameClaimType;
@@ -32,6 +33,7 @@ namespace AzureFunctions.OidcAuthentication
             IOidcConfigurationManager oidcConfigurationManager)
         {
             _issuerUrl = apiAuthorizationSettingsOptions?.Value?.IssuerUrl;
+            _issuer = apiAuthorizationSettingsOptions?.Value?.Issuer ?? _issuerUrl;
             _audience = apiAuthorizationSettingsOptions?.Value?.Audience;
             _nameClaimType = apiAuthorizationSettingsOptions?.Value?.NameClaimType ??  "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier";
             _roleClaimType = apiAuthorizationSettingsOptions?.Value?.RoleClaimType ?? "http://schemas.microsoft.com/ws/2008/06/identity/claims/roleidentifier";
@@ -96,7 +98,7 @@ namespace AzureFunctions.OidcAuthentication
                         RequireSignedTokens = true,
                         ValidAudience = _audience,
                         ValidateAudience = true,
-                        ValidIssuer = _issuerUrl,
+                        ValidIssuer = _issuer,
                         ValidateIssuer = true,
                         ValidateIssuerSigningKey = true,
                         ValidateLifetime = true,

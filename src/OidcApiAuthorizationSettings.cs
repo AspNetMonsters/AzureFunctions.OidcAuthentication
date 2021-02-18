@@ -70,5 +70,8 @@
         /// Default value: "http://schemas.microsoft.com/ws/2008/06/identity/claims/roleidentifier"
         /// </summary>
         public string RoleClaimType {get; set;}
+
+
+        public string Issuer { get; set; }
     }
 }

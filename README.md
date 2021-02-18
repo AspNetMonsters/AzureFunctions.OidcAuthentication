@@ -51,7 +51,7 @@ Here is an example `local.settings.json` file for Azure AD B2C:
     "Values": {
       "AzureWebJobsStorage": "UseDevelopmentStorage=true",
       "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-      "OidcApiAuthSettings:Audience": "Your Application's (client) ID",
+      "OidcApiAuthSettings:Audience": "Your API Application's Client ID",
       "OidcApiAuthSettings:MetadataAddress": "https://yourb2cdomain.b2clogin.com/yourb2cdomain.onmicrosoft.com/yoursigninuserflowname/v2.0/.well-known/openid-configuration/",
       "OidcApiAuthSettings:IssuerUrl": "https://yourb2cdomain.b2clogin.com/Your Directory (tenant) ID/v2.0/"
     }
@@ -68,7 +68,7 @@ The "Audience" is the identifer used by the authorization provider to identify t
 
 For Auth0 use the API's Identifier in the Auth0 Dashboard.
 
-For Azure AD B2C, use your Application's (client) ID.
+For Azure AD B2C, use your API Application's (client) ID. This is a GUID.
 
 **OidcApiAuthSettings:IssuerUrl** - Required
 
@@ -101,4 +101,48 @@ A string defining the name of the claim that will identify the user's role membe
 Default value: "http://schemas.microsoft.com/ws/2008/06/identity/claims/roleidentifier"
 
 
+### Securing an Azure Function
+Not that everything is configured, you can inject the `IApiAuthentication` service into your Azure Function and authenticate users as follows:
 
+```
+namespace MySecuredApp
+{
+    public class MyFunction
+    {
+        private readonly IApiAuthentication apiAuthentication;
+
+        public MyFunction(IApiAuthentication apiAuthentication)
+        {
+            this.apiAuthentication = apiAuthentication;
+        }
+        
+        [FunctionName("MyFunction")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            // Authenticate the user
+            var authResult = await this.apiAuthentication.AuthenticateAsync(req.Headers);
+
+            // Check the authentication result
+            if (authResult.Failed)
+            {
+                return new ForbidResult(authenticationScheme: "Bearer");
+            }
+            
+            // User is authenticated. Proceed with function logic
+            string name = authResult.User.Identity.Name; // This gives us the unique user name
+            
+            string responseMessage = $"Hello, {name}. This HTTP triggered function executed successfully.";
+
+            return new OkObjectResult(responseMessage);
+        }
+   }
+}
+```
+
+`AuthResult.User` is a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) that is created using the claims that were included in the JWT token that was validated by the `IApiAuthentication` service. You can use `authResult.User` to inspect the user's claims and add your own authorization rules inside your Function.
+
+## End-to-end Sample
+- **Functions App:** https://github.com/AspNetMonsters/functions-azure-b2c-sample
+- **Vue front-end:** https://github.com/AspNetMonsters/vue-azure-b2c-sample
